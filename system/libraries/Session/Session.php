@@ -307,7 +307,6 @@ class CI_Session {
 
 		isset($params['save_path']) OR $params['save_path'] = config_item('sess_save_path');
 
-        log_message("debug", "session_save path is hello".$params['save_path']);
 		$this->_config = $params;
 
 		// Security is king
