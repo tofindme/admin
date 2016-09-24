@@ -8,18 +8,18 @@
  *
  */
 
+defined('BASEPATH') OR exit('No direct script access allowed');
+
 class UserModel extends CI_Model {
 
     private $uid; //用户id
     private $uname; //用户名
-    private $urole; //用户角色，对应的权限(菜单)
 
     public function __construct()
     {
         parent::__construct();
         $this->uid = $this->session->userdata('uid');
         $this->uname = $this->session->userdata('uname');
-        $this->urole = $this->session->userdata('urole');
     }
 
     //保存用户登录后session数据
@@ -37,12 +37,6 @@ class UserModel extends CI_Model {
     public function getUsername()
     {
         return $this->uname;
-    }
-
-    //获取用户角色
-    public function getUserRole()
-    {
-        return $this->urole;
     }
 
     //检查数据
@@ -68,4 +62,3 @@ class UserModel extends CI_Model {
     }
 }
 
->

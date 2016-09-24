@@ -133,7 +133,6 @@ class CI_URI {
 						break;
 				}
 			}
-
 			$this->_set_uri_string($uri);
 		}
 
