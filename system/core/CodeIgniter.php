@@ -400,7 +400,7 @@ if ( ! is_php('5.4'))
 	$method = $RTR->method;
 
     log_message("error", " dir : " . $RTR->directory . " class :  $class   method : $method");
-    log_message("error", "PHP_SELF is " . $_SERVER['PHP_SELF'] . " FILE_NAME is " . $_SERVER['SCRIPT_FILENAME'] . " REQUEST_URI is " . $_SERVER['REQUEST_URI']);
+    log_message("error", "PHP_SELF is " . $_SERVER['PHP_SELF'] . " FILE_NAME is " . $_SERVER['SCRIPT_FILENAME'] . " REQUEST_URI is " . $_SERVER['REQUEST_URI']. " QUERY_STRING is " . $_SERVER['QUERY_STRING']);
 
 	if (empty($class) OR ! file_exists(APPPATH.'controllers/'.$RTR->directory.$class.'.php'))
 	{

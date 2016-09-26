@@ -112,6 +112,7 @@ class CI_Session_files_driver extends CI_Session_driver implements SessionHandle
 	 */
 	public function open($save_path, $name)
 	{
+        log_message("debug", "yibin  ..... session open save_path : $save_path name : $name");
 		if ( ! is_dir($save_path))
 		{
 			if ( ! mkdir($save_path, 0700, TRUE))
@@ -144,6 +145,7 @@ class CI_Session_files_driver extends CI_Session_driver implements SessionHandle
 	 */
 	public function read($session_id)
 	{
+        log_message("debug", "yibin  ..... session read session_id : $session_id");
 		// This might seem weird, but PHP 5.6 introduces session_reset(),
 		// which re-reads session data
 		if ($this->_file_handle === NULL)
@@ -222,6 +224,7 @@ class CI_Session_files_driver extends CI_Session_driver implements SessionHandle
 	 */
 	public function write($session_id, $session_data)
 	{
+        log_message("debug", "yibin  ..... session write session_id : $session_id session_data :" . json_encode($session_data));
 		// If the two IDs don't match, we have a session_regenerate_id() call
 		// and we need to close the old handle and open a new one
 		if ($session_id !== $this->_session_id && ($this->close() === $this->_failure OR $this->read($session_id) === $this->_failure))
@@ -279,6 +282,7 @@ class CI_Session_files_driver extends CI_Session_driver implements SessionHandle
 	 */
 	public function close()
 	{
+        log_message("debug", "yibin .... session close");
 		if (is_resource($this->_file_handle))
 		{
 			flock($this->_file_handle, LOCK_UN);
@@ -302,6 +306,7 @@ class CI_Session_files_driver extends CI_Session_driver implements SessionHandle
 	 */
 	public function destroy($session_id)
 	{
+        log_message("debug", "yibin .... session destroy  session_id : $session_id");
 		if ($this->close() === $this->_success)
 		{
 			if (file_exists($this->_file_path.$session_id))
@@ -343,6 +348,7 @@ class CI_Session_files_driver extends CI_Session_driver implements SessionHandle
 	 */
 	public function gc($maxlifetime)
 	{
+        log_message("debug", "yibin ... session gc maxlifetime : $maxlifetime");
 		if ( ! is_dir($this->_config['save_path']) OR ($directory = opendir($this->_config['save_path'])) === FALSE)
 		{
 			log_message('debug', "Session: Garbage collector couldn't list files under directory '".$this->_config['save_path']."'.");

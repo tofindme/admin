@@ -101,6 +101,7 @@ if ( ! function_exists('create_captcha'))
 			return FALSE;
 		}
 
+        log_message("debug", "yibin ============> img_path is $img_path");
 		// -----------------------------------
 		// Remove old images
 		// -----------------------------------
@@ -147,6 +148,7 @@ if ( ! function_exists('create_captcha'))
 			}
 		}
 
+        log_message("debug", "yibin ============>11111 img_path is $img_path");
 		if (empty($word))
 		{
 			// Nobody will have a larger character pool than
@@ -309,6 +311,7 @@ if ( ! function_exists('create_captcha'))
 			}
 		}
 
+        log_message("debug", "yibin ============> 222 img_path is $img_path");
 		// Create the border
 		imagerectangle($im, 0, 0, $img_width - 1, $img_height - 1, $colors['border']);
 

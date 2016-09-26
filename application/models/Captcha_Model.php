@@ -9,7 +9,7 @@ class Captcha_Model extends CI_Model {
 
     public function __construct() {
         parent::__construct();
-        $this->load->help('captcha');
+        $this->load->helper('captcha');
     }
 
     /**

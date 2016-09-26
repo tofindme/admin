@@ -7,8 +7,8 @@ class Login extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model('public/Captcha_Model', 'captcha_model');
-        $this->load->help('form');
+        $this->load->model('Captcha_Model', 'captcha_model');
+        $this->load->helper('form');
     }
 
     /**
@@ -29,7 +29,7 @@ class Login extends CI_Controller {
          * 'time' => TIMESTAMP (毫秒)
          * 'word' => s8sj
          */
-        $data['captcha'] = $this->captcha_model>create_captcha();
+        $data['captcha'] = $this->captcha_model->createCaptcha();
         $data['login_error'] = $info;
         //渲染试图
         $this->load->view('admin/login', $data);
@@ -49,7 +49,7 @@ class Login extends CI_Controller {
             if (!empty($this->userinfo)) {
 
                 //登录成功
-                $this->captcha_model>delete_captcha();
+                $this->captcha_model->deleteCaptcha();
                 //存放session
                 $this->load->model('admin/User_Model');
                 $this->User_Model->save_user_session($this->userinfo);
@@ -125,7 +125,7 @@ class Login extends CI_Controller {
      * 更换验证码
      */
     public function changeCode() {
-        $cap = $this->captcha_model>create_captcha();
+        $cap = $this->captcha_model->createCaptcha();
         exit($cap['time']);
     }
 

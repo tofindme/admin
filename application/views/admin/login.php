@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head runat="server">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>创@未来后台登录中心</title>
-        <script src="<?php echo base_url(); ?>dwz/js/jquery-1.7.2.min.js" type="text/javascript"></script>
+        <title>后台登录中心</title>
+        <script src="<?php echo base_url(); ?>public/js/jquery-1.7.2.min.js" type="text/javascript"></script>
         <script>
             $(document).ready(function(){
                 $('#cap').bind('click', function() {
                     $.get("<?php echo site_url('admin/login/change_code?'); ?>"+Math.random(), function(data){
-                        $('#cap').attr("src","<?php echo base_url() ?>captcha/"+data+".jpg");
+                        $('#cap').attr("src","<?php echo base_url() ?>/public/captcha/"+data+".jpg");
                     });
                 });
 
@@ -42,7 +42,7 @@
                         <li>
                             <span class="left">验证码：</span> <span style="left" >
                                 <input id="Text3" type="text" name="code" class="txtCode" />
-                                <img width="110" id="cap" height="30"  style="border:0;" src="<?php echo base_url() ?>captcha/<?php echo isset($captcha) ? $captcha['time'] : '' ?>.jpg" title="看不清？点此更换">
+                                <img width="110" id="cap" height="30"  style="border:0;" src="<?php echo base_url() ?>public/captcha/<?php echo isset($captcha) ? $captcha['time'] : '' ?>.jpg" title="看不清？点此更换">
                             </span>
                         </li>
                         <li style="padding-left: 50px;line-height:15px;">
@@ -72,7 +72,6 @@
                 <li class="middle_D"></li>
                 <li class="bottom_A"></li>
                 <li class="bottom_B">
-                    CodeIgniter2.1.4+dwz<br />
                     后台管理
                 </li>
             </ul>
