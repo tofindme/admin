@@ -83,6 +83,14 @@ INSERT intO `yb_role_pri`(r_id, p_id) VALUES(3, 5);
 
 INSERT intO `yb_role_pri`(r_id, p_id) VALUES(4, 10);
 
-/*
 
+/*
+获取权限列表
+select * from yb_privilege a ,
+    (select p.p_id,p.p_pid from
+    yb_user u,yb_user_role ur,
+    yb_role_pri rp,yb_privilege p
+    where u.u_id = 4 and ur.u_id = u.u_id and
+    rp.r_id = ur.r_id and  p.p_id = rp.p_id) b
+where a.p_id = b.p_id or a.p_id = b.p_pid;
 */
