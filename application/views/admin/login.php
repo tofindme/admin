@@ -3,30 +3,26 @@
     <head runat="server">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>后台登录中心</title>
-        <script src="<?php echo base_url(); ?>public/js/jquery-1.7.2.min.js" type="text/javascript"></script>
+        <script src="<?php echo base_url(); ?>public/js/jquery-2.2.2.min.js" type="text/javascript"></script>
         <script>
             $(document).ready(function(){
                 $('#cap').bind('click', function() {
                     $.get("<?php echo site_url('admin/login/change_code?'); ?>"+Math.random(), function(data){
-                        $('#cap').attr("src","<?php echo base_url() ?>/public/captcha/"+data+".jpg");
+                        $('#cap').attr("src","<?php echo base_url() ?>public/captcha/"+data+".jpg");
                     });
                 });
 
             });
 
         </script>
+        <style  type="text/css">
+            li{margin:0; padding:0; list-sytle:none}
+        </style>
     </head>
     <body>
         <?php echo form_open('admin/login/dologin'); ?>
         <div class="Main">
             <ul>
-                <li class="top"></li>
-                <li class="top2"></li>
-                <li class="topA"></li>
-                <li class="topB"><span>
-                        <img src="<?php echo base_url() ?>images/login/logo1.gif" alt="" style="" />
-                    </span></li>
-                <li class="topC"></li>
                 <li class="topD">
                     <ul class="login">
                         <li>
@@ -66,7 +62,7 @@
                 </li>
                 <li class="middle_C">
                     <span class="btn">
-                        <input type="image" alt="" src="<?php echo base_url() ?>images/login/btnlogin.gif" />
+                        <input type="image" alt="" src="<?php echo base_url() ?>public/images/login.jpg" />
                     </span>
                 </li>
                 <li class="middle_D"></li>

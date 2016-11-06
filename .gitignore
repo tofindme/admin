@@ -1,3 +1,5 @@
 */logs/*
-session
-/public/captcha
+session/
+/public/captcha/*
+/public/images/*
+
